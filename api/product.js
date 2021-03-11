@@ -11,11 +11,11 @@ const getProducts = async (req, res) => {
     try {
         const products = await axios.get(`${apiUrl}/sites/MLA/search?q=${req.query.q}`);
         const categories_list = products.data.available_filters.find(item=>item.id=='category');
-        const categories = categories_list.values.map(item=>item.name);
+        const categories = categories_list ? categories_list.values.map(item=>item.name): [];
         const response = {
            ...responseSchema,
             categories, 
-            items: products.data.results
+            items: products.data.results.slice(0, 4)
         }
       return res.send(response)
     } catch (error) {
@@ -27,7 +27,8 @@ const getProductByID = async (req, res) => {
         const product = await axios.get(`${apiUrl}/items/${req.params.id}`);
       return res.send({...responseSchema, item: product.data})
     } catch (error) {
-      console.error(error)
+      // console.error(error)
+      res.sendStatus(404);
     }
   }
 const getProductDescriptionByID = async (req, res) => {

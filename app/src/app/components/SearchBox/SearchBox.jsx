@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 import iconSearch from '../../assets/ic_Search.png'
 import './SearchBox.scss';
 
@@ -6,7 +7,7 @@ const SearchBox = ({searchItem}) => {
     const [inputValue, setInputValue] = useState('');
     return (
         <div className="search-box-component row">
-            <a href="/" className="logo">&nbsp;</a>
+            <Link to="/" className="logo">&nbsp;</Link>
             <div className="div-input">
                 <input 
                 className="input-search" 

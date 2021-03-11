@@ -1,23 +1,14 @@
 import React from 'react'
+import Header from '../../components/Header';
 import './home.scss'
-import SearchBox from '../../components/SearchBox'
 
 const Home = ({history}) => {
     const searchItem = (q) =>{
         history.push(`/items?search=${q}`)
     }
     return (
-        <div className="search-page-content">
-            <div className="search-box">
-                <div className="container search-page">
-                    <div className="row">
-                        <div className="col-12">
-                            <SearchBox searchItem={searchItem}/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* <div className=""></div> */}
+        <div className="search-content-page">
+            <Header searchItem={searchItem}/>
         </div>
     );
 }
