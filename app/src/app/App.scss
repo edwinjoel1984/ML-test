@@ -1,7 +1,6 @@
-/**
-*** SIMPLE GRID
-*** (C) ZACH COLE 2016
-**/
+
+// VARS
+@import './config/variables';
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
 
@@ -21,9 +20,9 @@ body {
 /* ROOT FONT STYLES */
 
 * {
-  font-family: 'Lato', Helvetica, sans-serif;
-  color: #333447;
-  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: $mineShaft;
+  box-sizing: border-box;
 }
 
 /* TYPOGRAPHY */
@@ -55,7 +54,7 @@ h6 {
 p {
   font-size: 1.125rem;
   font-weight: 200;
-  line-height: 1.8;
+  margin: 0;
 }
 
 .font-light {

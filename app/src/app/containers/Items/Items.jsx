@@ -4,8 +4,11 @@ import Header from '../../components/Header'
 import Metadata from '../../components/Metadata';
 import ProductList from '../../components/ProductList'
 
+//Styles
+import './Items.scss'
 //Services
 import { getProducts } from '../../services/product.service';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 
 const Items = (props) => {
     const [products, setProducts] = useState([]);
@@ -33,7 +36,14 @@ const Items = (props) => {
         <div className="items-content-page">
             <Metadata seoInfo={seoInfo} />
             <Header searchItem={searchItem} currentValue={seoInfo.title} />
-            <ProductList products={products}/> 
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <Breadcrumb categories={seoInfo.categories}/>
+                        <ProductList products={products}/> 
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
