@@ -1,0 +1,38 @@
+.search-box-component{
+    display: flex;
+    .logo{
+        height: 36px;
+        width: 53px;
+        background: url('../../assets/Logo_ML@2x.png');
+        margin-right: 16px;
+    }
+    .div-input{
+        flex: 1;
+        display: flex;
+        .input-search{
+            flex: 1;
+            font-size: 16px;
+            padding: 4px 12px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            color: #333333;
+            &:focus{
+                outline: none;
+            }
+        }
+        .button-search{
+            border: none;
+            width: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #EEEEEE;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+}
