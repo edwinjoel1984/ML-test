@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require('cors');
 const app = express();
-const {getProducts, getProductByID, getProductDescriptionByID} = require('./product');
+const { getProducts, getProductByID, getProductDescriptionByID } = require('./product');
 
-
-app.use(cors({origin: 'http://localhost:3000', credentials: true}))
+//Only Accept request from http://localhost:3000
+app.use(cors({origin: 'http://localhost:3000', credentials: true}));
 
 var productRouter = express.Router();
 
@@ -12,4 +12,4 @@ productRouter.get('/', getProducts);
 productRouter.get('/:id', getProductByID);
 productRouter.get('/:id/description', getProductDescriptionByID);
 app.use('/api/items', productRouter);
-app.listen(5000, () => console.log("Servidor listo ..."))
+app.listen(5000, () => console.log("Servidor listo ..."));

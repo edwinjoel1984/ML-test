@@ -18,3 +18,12 @@ export const getProductByID = (productId) => {
       },
     });
   };
+export const getProductDescriptionByID = (productId) => {
+    return axios({
+      method: "GET",
+      url: `http://localhost:5000/api/items/${productId}/description`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };

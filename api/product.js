@@ -6,11 +6,13 @@ let responseSchema ={
         lastname: 'Ulloa'
     }, 
 }
-
+//Get All Products
 const getProducts = async (req, res) => {
     try {
         const products = await axios.get(`${apiUrl}/sites/MLA/search?q=${req.query.q}`);
+        //Filter Categories
         const categories_list = products.data.available_filters.find(item=>item.id=='category');
+        //Map categories by required structure [String, String]
         const categories = categories_list ? categories_list.values.map(item=>item.name): [];
         const response = {
            ...responseSchema,
@@ -27,8 +29,7 @@ const getProductByID = async (req, res) => {
         const product = await axios.get(`${apiUrl}/items/${req.params.id}`);
       return res.send({...responseSchema, item: product.data})
     } catch (error) {
-      // console.error(error)
-      res.sendStatus(404);
+      res.sendStatus(error.response.status);
     }
   }
 const getProductDescriptionByID = async (req, res) => {
@@ -36,7 +37,7 @@ const getProductDescriptionByID = async (req, res) => {
         const product = await axios.get(`${apiUrl}/items/${req.params.id}/description`);
       return res.send({...responseSchema, description: product.data})
     } catch (error) {
-      console.error(error)
+      res.sendStatus(error.response.status);
     }
   }
 
