@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react'
-import { Helmet } from "react-helmet";
 
 //Components
 import Header from '../../components/Header'
 import ProductInfo from '../../components/ProductInfo';
 import Metadata from '../../components/Metadata';
 
+//Styles
+import './Product.scss';
+
 //Services
 import { getProductByID, getProductDescriptionByID } from '../../services/product.service';
 
 const Product = (props) => {
-    const [productInformation, setProductInformation] = useState({});
-    const [notFound, setNotFound] = useState(false);
+    const [productInformation, setProductInformation] = useState();
     const [seoInfo, setSEOInfo] = useState({title: '', description: '', image: null});
     useEffect(() => {
         async function getProductInformation() {
@@ -24,8 +25,7 @@ const Product = (props) => {
                 setSEOInfo({title: product.item.title, description: description.description.plain_text, image: product.item.thumbnail });
 
             }catch(e){
-                if(e.response.status === 404)
-                    setNotFound(true);
+                console.error(e)
             }
         }
         if (props.match.params.id) 
@@ -36,10 +36,17 @@ const Product = (props) => {
         props.history.push(`/items?search=${q}`)
     }
     return (
-        <div className="items-content-page">
-            <Header searchItem={searchItem}/>
+        <div className="product-content-page">
             <Metadata seoInfo={seoInfo}/>
-            <ProductInfo productInformation={productInformation}/>
+            <Header searchItem={searchItem}/>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <ProductInfo productInformation={{...productInformation, description: seoInfo.description}}/>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     );
 }

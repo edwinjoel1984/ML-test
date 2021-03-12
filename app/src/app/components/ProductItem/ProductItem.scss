@@ -1,48 +1,68 @@
 @import '../../config/variables';
 
 .product{
-        &:not(:last-child):after{
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            height: 1px;
-            margin: auto;
-            width: calc(100% - 80px);
-            background: $gallery;
-        }
-        position: relative;
-        display: flex;
-        width: 100%;
-        align-items: center;
-        padding: 16px;
-        background-color: $white;
-        &__image{
-            width: 180px;
-            height: 180px;
-            margin-right: 16px;
-            border-radius: 4px;
-        }
+    &:not(:last-child):after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 1px;
+        margin: auto;
+        width: calc(100% - 80px);
+        background: $gallery;
+    }
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 16px;
+    background-color: $white;
+    &__image{
+        width: 180px;
+        height: 180px;
+        margin-right: 16px;
+        border-radius: 4px;
+    }
 
+    &__detail{
+        padding-right: 16px;
+        flex: 1;
+        &__price{
+            font-weight: 600;
+            padding-bottom: 32px;
+            font-size: 24px;
+        }
+        &__title{
+            font-size: 18px;;
+            font-weight: 500;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+    &__city{
+        font-size: 12px;
+        width: 120px;
+    }
+    @media only screen and (max-width: 767px) {
+		&__image{
+            width: 90px;
+            height: 90px;
+        }
         &__detail{
-            padding-right: 16px;
-            flex: 1;
             &__price{
                 font-weight: 600;
-                padding-bottom: 32px;
-                font-size: 24px;
+                padding-bottom: 10px;
+                font-size: 16px;
             }
             &__title{
-                font-size: 18px;;
+                font-size: 12px;;
                 font-weight: 500;
-                a{
-                    text-decoration: none;
-                }
             }
         }
         &__city{
-            font-size: 12px;
-            width: 120px;
+            display: none;
         }
+	}
 }
