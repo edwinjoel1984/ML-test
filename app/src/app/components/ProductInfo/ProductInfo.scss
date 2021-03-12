@@ -7,6 +7,8 @@
         flex: 1;
         padding: 32px;
         &__image{
+            display: block;
+            margin: 0 auto;
             max-width: 100%;
             @media only screen and (max-width: 767px) {
                 display: none;
@@ -15,6 +17,7 @@
         &__headline{
             margin: 0;
             font-size: 28px;
+            margin-top: 32px;
         }
         &__description{
             padding-top: 32px;
@@ -37,6 +40,7 @@
             display: none;
             @media only screen and (max-width: 767px) {
                 max-width: 100%;
+                margin: 0 auto;
                 display: block;
             }
         }
@@ -68,6 +72,9 @@
             width: 100%;
             box-sizing: border-box;
             padding-bottom: 0;
+            &__title{
+                margin-bottom: 32px;
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ const app = express();
 const { getProducts, getProductByID, getProductDescriptionByID } = require('./product');
 
 //Only Accept request from http://localhost:3000
-app.use(cors({origin: 'http://localhost:3000', credentials: true}));
+app.use(cors({origin: 'http://localhost:3001', credentials: true}));
 
 var productRouter = express.Router();
 

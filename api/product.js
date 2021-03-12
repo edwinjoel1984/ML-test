@@ -17,7 +17,7 @@ const getProducts = async (req, res) => {
         const response = {
            ...responseSchema,
             categories, 
-            items: products.data.results.slice(0, 6),
+            items: products.data.results.slice(0, 4),
             ...products.data
         }
       return res.send(response)
@@ -28,7 +28,7 @@ const getProducts = async (req, res) => {
 const getProductByID = async (req, res) => {
     try {
         const product = await axios.get(`${apiUrl}/items/${req.params.id}`);
-      return res.send({...responseSchema, item: product.data})
+        return res.send({...responseSchema, item: product.data})
     } catch (error) {
       res.sendStatus(error.response.status);
     }
